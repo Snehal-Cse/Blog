@@ -1,7 +1,8 @@
 "use client"
 import React from "react"
 export default function Header(){
-    const []
+ 
+
     return(
         <div>
             <div className = "max-w-full max-h-40 h-16 w-screen flex flex-row p-1 shadow shadow-gray-400 font-bold justify-between px-8 items-center">

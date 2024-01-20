@@ -1,11 +1,26 @@
+"use client"
+import React from "react"
 import Data from './data'
 import Card from './card'
 export default function Page(){
-  const information = Data.map((item)=>{
+  const [blogs,setBlogs] = React.useState([])
+  React.useState(()=>{
+    fetch("http://localhost:3001/blogs",{
+      method : 'GET',
+      headers:{
+        'Content-Type': 'application/json'
+        }
+    })
+    .then((res)=>res.json())
+    .then((data)=>setBlogs(data.blogs))
+  },[])
+
+  const information = blogs.map((item)=>{
     return (
       <Card  
        bgColor = {item.bgColor}
        topic = {item.topic}
+       about = {item.about}
        content = {item.content} />
     )
   })
